@@ -1,0 +1,19 @@
+.header {
+    background-image: url('../../images/header_background.jpg');
+    height: 576px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.header__top {
+    width: 1440px;
+    display: flex;
+    height: 80px;
+    padding: 0 104px 0;
+    box-sizing: border-box;
+}
