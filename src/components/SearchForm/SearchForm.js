@@ -19,7 +19,7 @@ function SearchForm() {
                 maxLength="40"
                 required
                 ></input>
-                <button type="submit">Искать</button>
+                <button type="submit" className="search-form__submit">Искать</button>
             </fieldset>
         </form>
     )
