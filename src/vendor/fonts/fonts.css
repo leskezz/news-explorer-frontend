@@ -4,7 +4,7 @@
     font-style:  normal;
     font-weight: normal;
     font-display: swap;
-};
+}
 
 @font-face {
     src: url("./roboto-regular.woff") format("woff");
@@ -12,7 +12,7 @@
     font-style:  normal;
     font-weight: normal;
     font-display: swap;
-};
+}
 
 @font-face {
     src: url("./roboto-medium.woff") format("woff");
@@ -20,7 +20,7 @@
     font-style:  normal;
     font-weight: 500;
     font-display: swap;
-};
+}
 
 @font-face {
     src: url("./roboto-black.woff") format("woff");
@@ -28,7 +28,7 @@
     font-style:  normal;
     font-weight: bold;
     font-display: swap;
-};
+}
 
 @font-face {
     src: url("./robotoslab-regular.woff") format("woff");
@@ -36,12 +36,12 @@
     font-style:  normal;
     font-weight: normal;
     font-display: swap;
-};
+}
 
 @font-face {
     src: url("./sourcesanspro-regular.woff") format("woff");
-    font-family: "Sourcesanspro";
+    font-family: "Source Sans Pro";
     font-style:  normal;
     font-weight: normal;
     font-display: swap;
-};
+}
