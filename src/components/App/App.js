@@ -5,18 +5,47 @@ import Header from '../Header/Header';
 import Main from '../Main/Main';
 import SavedNews from '../SavedNews/SavedNews';
 import Footer from '../Footer/Footer';
-import PopupWithForm from '../PopupWithForm/PopupWithForm';
+import PopupAuth from '../PopupAuth/PopupAuth';
+import PopupRegister from '../PopupRegister/PopupRegister';
+import PopupSuccessAuth from '../PopupSuccessAuth/PopupSuccessAuth';
 
 function App() {
+  const [isPopupAuthOpen, setIsPopupAuthOpen] = React.useState(false);
+  const [isPopupAuthRegisterOpen, setIsPopupAuthRegisterOpen] = React.useState(false);
+  const [isPopupSuccessAuthOpen, setIsPopupSuccessAuthOpen] = React.useState(false);
+
+  function openAuthPopup() {
+    setIsPopupAuthOpen(true);
+  }
+
+  function openRegisterPopup() {
+    setIsPopupAuthRegisterOpen(true);
+  }
+
+  function openSuccessPopup() {
+    setIsPopupSuccessAuthOpen(true);
+  }
+
+  function closeAllPopups() {
+    setIsPopupAuthOpen(false);
+    setIsPopupAuthRegisterOpen(false);
+    setIsPopupSuccessAuthOpen(false);
+  }
+
+  function changePopupOpen() {
+    setIsPopupAuthOpen(!isPopupAuthOpen);
+    setIsPopupAuthRegisterOpen(!isPopupAuthRegisterOpen);
+  }
+
   return (
     <div className="page">
       <Switch>
         <Route path="/saved-news">
-          <Header blackTheme={false} />
+          <Header clickAuthHandler={openAuthPopup} blackTheme={false} />
           <SavedNews />
         </Route>
         <Route exact path="/">
-          <Header blackTheme={true}  />
+          <Header clickAuthHandler={openAuthPopup} blackTheme={true}  />
           <Main />
         </Route>
         <Route path="*">
@@ -24,7 +53,9 @@ function App() {
         </Route>
       </Switch>
       <Footer />
-      <PopupWithForm />
+      <PopupAuth isOpen={isPopupAuthOpen} onClose={closeAllPopups} changePopup={changePopupOpen} />
+      <PopupRegister isOpen={isPopupAuthRegisterOpen} onClose={closeAllPopups} changePopup={changePopupOpen} />
+      <PopupSuccessAuth isOpen={isPopupSuccessAuthOpen} onClose={closeAllPopups} onClick={openAuthPopup} />
     </div>
   );
 }

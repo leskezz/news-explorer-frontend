@@ -1,0 +1,47 @@
+.popup-auth {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.popup-auth__item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+    padding: 0 0 10px;
+    margin: 0 0 31px;
+}
+
+.popup-auth__item-name {
+    margin: 0 0 9px;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 1.25;
+    color: #2F71E5;
+    text-align: left;
+}
+
+.popup-auth__input {
+    border: none;
+    padding: 0;
+}
+
+.popup-auth__error {
+    margin: 0;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 1.25;
+    color: #FF0000;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+}

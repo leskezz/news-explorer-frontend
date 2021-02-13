@@ -4,3 +4,4 @@ export {Github} from './Github';
 export {Logout} from './Logout';
 export {NotFound} from './NotFound';
 export {Trash} from './Trash';
+export {Close} from './Close';
