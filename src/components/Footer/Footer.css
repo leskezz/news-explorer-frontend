@@ -46,6 +46,11 @@
     font-size: 18px;
     line-height: 1.33;
     color: #1A1B22;
+    transition: opacity .2s linear;
+}
+
+.footer__nav-link:hover {
+    opacity: .8;
 }
 
 .footer__nav-link:last-of-type {
@@ -55,6 +60,11 @@
 .footer__social {
     margin: 0 24px 0 0;
     cursor: pointer;
+    transition: opacity .2s linear;
+}
+
+.footer__social:hover {
+    opacity: .8;
 }
 
 .footer__social:last-of-type {

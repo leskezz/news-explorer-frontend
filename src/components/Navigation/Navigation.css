@@ -13,6 +13,7 @@
     transition: opacity .2s linear;
     cursor: pointer;
     margin: 0 34px 0 0;
+    opacity: .6;
 }
 
 .navigation__link_black {
@@ -27,10 +28,11 @@
 .navigation__link_disabled {
     padding-bottom: 26px;
     border-bottom: 3px solid;
+    opacity: 1;
 }
     
 .navigation__link:hover {
-    opacity: .8;
+    opacity: 1;
 }
 
 .navigation__link:last-of-type {

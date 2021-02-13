@@ -44,6 +44,12 @@
     font-weight: bold;
     font-size: 20px;
     line-height: 1.2;
+    text-decoration: none;
+    transition: opacity .2s linear;
+}
+
+.header__logo:hover {
+    opacity: .9;
 }
 
 .header__logo_black {

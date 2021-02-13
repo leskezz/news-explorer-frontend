@@ -72,10 +72,14 @@
     font-size: 18px;
     line-height: 1.33;
     color: #FFF;
-    transition: opacity .2s linear;
+    transition: background-color .2s linear;
     cursor: pointer;
 }
 
 .search-form__submit:hover {
-    opacity: .8;
+    background-color: #347EFF;
+}
+
+.search-form__submit_clicked {
+    background-color: #2A65CC;
 }
