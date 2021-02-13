@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './NewsCard.css';
-import { Bookmark } from '../../images/svg/Bookmark';
+import { Bookmark } from '../../images/svg/index';
 
 function NewsCard({ card }) {
     const [isClickedSaveButton, setIsClickedSaveButton] = useState(false);

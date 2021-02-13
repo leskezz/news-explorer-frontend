@@ -4,6 +4,7 @@
     box-sizing: border-box;
     padding: 80px 216px 80px 104px;
     display: flex;
+    margin: 0 auto;
 }
 
 .about__photo {

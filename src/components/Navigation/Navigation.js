@@ -1,6 +1,6 @@
 import './Navigation.css';
 import { NavLink } from 'react-router-dom';
-import { Logout } from "../../images/svg/Logout";
+import { Logout } from "../../images/svg/index";
 
 function Navigation() {
     return (

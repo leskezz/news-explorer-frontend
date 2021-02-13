@@ -1,5 +1,5 @@
 import './NoResults.css';
-import { NotFound } from '../../images/svg/NotFound';
+import { NotFound } from '../../images/svg/index';
 
 function NoResults() {
     return (
