@@ -1,0 +1,50 @@
+.about {
+    width: 1440px;
+    height: 624px;
+    box-sizing: border-box;
+    padding: 80px 216px 80px 104px;
+    display: flex;
+}
+
+.about__photo {
+    border-radius: 1000px;
+    width: 464px;
+    height: 464px;
+    margin: 0 64px 0 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.about__info-block {
+    width: 600px;
+    height: 464px;
+    overflow: hidden;
+    padding-top: 51px;
+    box-sizing: border-box;
+}
+
+.about__title {
+    font-family: 'Roboto Slab', ‘Arial’, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 1.15;
+    color: #1A1B22;
+    text-align: left;
+    margin: 0 0 24px;
+}
+
+.about__description {
+    font-family: 'Roboto', ‘Arial’, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.33;
+    color: #1A1B22;
+    text-align: left;
+    margin: 0 0 34px;
+}
+
+.about__description:last-of-type {
+    margin-bottom: 0;
+}
