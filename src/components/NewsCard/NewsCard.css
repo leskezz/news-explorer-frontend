@@ -71,7 +71,7 @@
     opacity: 1;
 }
 
-.new-card-auth-text {
+.new-card__auth-text {
     font-family: 'Roboto', ‘Arial’, sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -147,4 +147,81 @@
     position: absolute;
     left: 24px;
     bottom: 0;
+}
+
+.new-card__tag {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 88px;
+    height: 40px;
+    padding: 8px 0;
+}
+
+.new-card__tag-text {
+    font-family: 'Roboto', ‘Arial’, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.71;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+}
+
+.news-card__button-delete {
+    width: 40px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: none;
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.new-card__delete-note {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s linear, opacity 0.2s linear;
+    position: absolute;
+    top: 24px;
+    right: 69px;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 22px rgba(59, 74, 116, 0.1);
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 13px 0;
+    width: 159px;
+    height: 40px;
+}
+
+.news-card__button-delete:hover + .new-card__delete-note {
+    visibility: visible;
+    opacity: 1;
+}
+
+.new-card__delete-text {
+    font-family: 'Roboto', ‘Arial’, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.66;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+}
+
+.news-card__trash-icon {
+    opacity: .3;
+    transition: opacity .2s linear;
+}
+
+.news-card__button-delete:hover > .news-card__trash-icon {
+    opacity: 1;
 }
