@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -10,12 +10,13 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm';
 function App() {
   return (
     <div className="page">
-      <Header />
       <Switch>
         <Route path="/saved-news">
+          <Header blackTheme={false} />
           <SavedNews />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
+          <Header blackTheme={true}  />
           <Main />
         </Route>
         <Route path="*">

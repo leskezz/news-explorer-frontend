@@ -2,6 +2,7 @@
     width: 608px;
     padding: 80px 0;
     height: 416px;
+    box-sizing: border-box;
 }
 
 .search-form__title {

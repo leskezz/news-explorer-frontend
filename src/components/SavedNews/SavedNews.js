@@ -1,10 +1,25 @@
 import './SavedNews.css';
-import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
+import NewsCardList from '../NewsCardList/NewsCardList';
+import { savedCards } from '../../utils/config';
 
 function SavedNews() {
     return (
         <section className="saved-news">
-            <SavedNewsHeader />
+            <div className="saved-news__count">
+                <p className="saved-news__top">
+                    Сохранённые статьи
+                </p>
+                <h2 className="saved-news__title">
+                    Грета, у вас 5 сохранённых статей
+                </h2>
+                <p className="saved-news__tags">
+                    По ключевым словам:
+                        <span className="saved-news__tags-span"> Природа, Тайга </span>
+                    и
+                        <span className="saved-news__tags-span"> 2-м другим</span>
+                </p>
+            </div>
+            <NewsCardList cards={savedCards} />
         </section>
     )
 };
