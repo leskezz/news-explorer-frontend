@@ -116,3 +116,29 @@
 .popup__change-button:hover {
     opacity: .6;
 }
+
+@media screen and (max-width: 1024px) {
+    .popup__form {
+        margin-top: -30%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .popup {
+        align-items: stretch;
+        justify-content: flex-start;
+        padding-top: 56px;
+        box-sizing: border-box;
+    }
+    .popup__form {
+        margin-top: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 16px;
+    }
+
+    .popup__close-button {
+        top: -56px;
+        right: 16px;
+    }    
+}

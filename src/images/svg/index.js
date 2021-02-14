@@ -5,3 +5,4 @@ export {Logout} from './Logout';
 export {NotFound} from './NotFound';
 export {Trash} from './Trash';
 export {Close} from './Close';
+export {Menu} from './Menu';

@@ -17,9 +17,10 @@ function PopupRegister({ isOpen, onClose, changePopup }) {
             changePopup={changePopup}
         >
             <fieldset className="popup-auth">
-                <label className="popup-auth__item">
-                    <p className="popup-auth__item-name">Email</p>
+                <div className="popup-auth__item">
+                    <label htmlFor="email-reg" className="popup-auth__item-name">Email</label>
                     <input
+                        id="email-reg"
                         className="popup-auth__input"
                         type="email"
                         name="email"
@@ -27,10 +28,11 @@ function PopupRegister({ isOpen, onClose, changePopup }) {
                         placeholder="Введите почту"
                     />
                     <span className="popup-auth__error">Неправильный формат email</span>
-                </label>
-                <label className="popup-auth__item">
-                    <p className="popup-auth__item-name">Пароль</p>
+                </div>
+                <div className="popup-auth__item">
+                    <label htmlFor="password-reg" className="popup-auth__item-name">Пароль</label>
                     <input
+                        id="password-reg"
                         className="popup-auth__input"
                         type="password"
                         name="password"
@@ -39,11 +41,12 @@ function PopupRegister({ isOpen, onClose, changePopup }) {
                         placeholder="Введите пароль"
                     />
                     <span className="popup-auth__error">Пароль должен содержать минимум 2 символа</span>
-                </label>
+                </div>
                 
-                <label className="popup-auth__item">
-                    <p className="popup-auth__item-name">Имя</p>
+                <div className="popup-auth__item">
+                    <label htmlFor="name" className="popup-auth__item-name">Имя</label>
                     <input
+                        id="name"
                         className="popup-auth__input"
                         type="text"
                         name="name"
@@ -52,7 +55,7 @@ function PopupRegister({ isOpen, onClose, changePopup }) {
                         placeholder="Введите своё имя"
                     />
                     <span className="popup-auth__error">Имя должно содержать минимум 2 буквы</span>
-                </label>
+                </div>
 
             </fieldset>
         </PopupWithForm>

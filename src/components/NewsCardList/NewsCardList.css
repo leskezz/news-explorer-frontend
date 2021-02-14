@@ -27,3 +27,18 @@
         grid-template-columns: repeat(3, minmax(150px, 310px))
     }
 }
+
+@media screen and (max-width: 600px) {
+    .news-card-list {
+        padding: 24px 0 15px;
+    }
+
+    .news-card-list__grid {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        grid-gap: 0px;
+    }
+}

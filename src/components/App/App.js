@@ -41,11 +41,11 @@ function App() {
     <div className="page">
       <Switch>
         <Route path="/saved-news">
-          <Header clickAuthHandler={openAuthPopup} blackTheme={false} />
+          <Header clickAuthHandler={openAuthPopup} blackTheme={false} isPopupOpen={isPopupAuthOpen || isPopupAuthRegisterOpen || isPopupSuccessAuthOpen} />
           <SavedNews />
         </Route>
         <Route exact path="/">
-          <Header clickAuthHandler={openAuthPopup} blackTheme={true}  />
+          <Header clickAuthHandler={openAuthPopup} blackTheme={true} isPopupOpen={isPopupAuthOpen || isPopupAuthRegisterOpen || isPopupSuccessAuthOpen} />
           <Main />
         </Route>
         <Route path="*">

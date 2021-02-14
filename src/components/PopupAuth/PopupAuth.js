@@ -15,9 +15,10 @@ return (
         changePopup={changePopup}
     >
         <fieldset className="popup-auth">
-            <label className="popup-auth__item">
-                <p className="popup-auth__item-name">Email</p>
+            <div className="popup-auth__item">
+                <label htmlFor="email-auth" className="popup-auth__item-name">Email</label>
                 <input
+                    id="email-auth"
                     className="popup-auth__input"
                     type="email"
                     name="email"
@@ -25,10 +26,12 @@ return (
                     placeholder="Введите почту"
                 />
                 <span className="popup-auth__error">Неправильный формат email</span>
-            </label>
-            <label className="popup-auth__item">
-                <p className="popup-auth__item-name">Пароль</p>
+            </div>
+                
+            <div className="popup-auth__item">
+                <label htmlFor="password-auth" className="popup-auth__item-name">Пароль</label>
                 <input
+                    id="password-auth"
                     className="popup-auth__input"
                     type="password"
                     name="password"
@@ -37,7 +40,7 @@ return (
                     placeholder="Введите пароль"
                 />
                 <span className="popup-auth__error">Пароль должен содержать минимум 2 символа</span>
-            </label>
+            </div>
             
         </fieldset>
     </PopupWithForm>

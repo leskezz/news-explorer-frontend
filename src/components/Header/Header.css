@@ -58,6 +58,16 @@
     color: #1A1B22;
 }
 
+.header__menu-button {
+    display: none;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
 @media screen and (max-width: 1024px) {
     .header_white {
         height: 66px;
@@ -76,6 +86,7 @@
 @media screen and (max-width: 750px) {
     .header__logo  {
         font-size: 16px;
+        line-height: 1.5;
     }
 
     .header__top {
@@ -84,5 +95,25 @@
 }
 
 @media screen and (max-width: 600px) {
+    .header_white {
+        height: 56px;
+    }
+
+    .header_black {
+        height: 536px;
+    }
+
+    .header__top {
+        padding: 0 16px;
+        height: 56px;
+    }
     
+    .header__menu-button {
+        display: block;
+        z-index: 3;
+    }
+
+    .header__top_hide {
+        opacity: 0;
+    }
 }

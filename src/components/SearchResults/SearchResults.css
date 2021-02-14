@@ -67,3 +67,24 @@
         height: 56px;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .search-results {
+        min-height: 1576px;
+        padding: 32px 16px;
+    }
+
+    .flexbox-column {
+        align-items: flex-start;
+    }
+
+    .search-results__title {
+        padding-left: 0;
+        max-width: 288px;
+    }
+
+    .search-results__more-button {
+        width: 100%;
+        height: 56px;
+    }
+}
