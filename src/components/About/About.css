@@ -1,5 +1,5 @@
 .about {
-    width: 1440px;
+    max-width: 1440px;
     height: 624px;
     box-sizing: border-box;
     padding: 80px 216px 80px 104px;
@@ -9,15 +9,15 @@
 
 .about__photo {
     border-radius: 1000px;
-    width: 464px;
-    height: 464px;
+    max-width: 464px;
     margin: 0 64px 0 0;
     object-fit: cover;
     object-position: center;
 }
 
 .about__info-block {
-    width: 600px;
+    max-width: 600px;
+    min-width: 424px;
     height: 464px;
     overflow: hidden;
     padding-top: 51px;

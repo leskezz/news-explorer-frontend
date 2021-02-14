@@ -10,8 +10,8 @@
     margin: 0 auto;
     padding: 0 104px;
     box-sizing: border-box;
-    width: 1440px;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    max-width: 1440px;
+    grid-template-columns: repeat(3, minmax(224px, 400px));
     grid-gap: 16px;
     list-style: none;
 }
