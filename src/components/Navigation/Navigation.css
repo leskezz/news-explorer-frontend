@@ -84,3 +84,27 @@
     color: #1A1B22;
     border-color: #1A1B22;
 }
+
+@media screen and (max-width: 1024px) {
+    .navigation__link {
+        margin-right: 16px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    .navigation__button {
+        margin-left: 16px;
+        font-size: 16px;
+        line-height: 1.5;
+        height: 40px;
+    }
+
+    .navigation__button_type_auth {
+        width: 152px;
+    }
+
+    .navigation__button_type_logout {
+        padding: 0 16px 0 15px;
+        width: 100px;
+    }
+}

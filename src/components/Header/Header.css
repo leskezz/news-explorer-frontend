@@ -1,8 +1,5 @@
 .header {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .header_black {
@@ -23,11 +20,12 @@
     max-width: 1440px;
     display: flex;
     height: 80px;
-    padding: 0 104px 0;
+    padding: 0 104px;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
     border-bottom: solid 1px rgba(196, 196, 196, 0.01);
+    margin: 0 auto;
 }
 
 .header__top_black {
@@ -58,4 +56,18 @@
 
 .header__logo_white {
     color: #1A1B22;
+}
+
+@media screen and (max-width: 1024px) {
+    .header_white {
+        height: 66px;
+    }
+
+    .header_black {
+        height: 400px;
+    }
+
+    .header__top {
+        padding: 0 40px;
+    }
 }

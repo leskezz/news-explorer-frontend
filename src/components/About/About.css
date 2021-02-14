@@ -1,10 +1,11 @@
 .about {
     max-width: 1440px;
-    height: 624px;
+    max-height: 624px;
     box-sizing: border-box;
     padding: 80px 216px 80px 104px;
     display: flex;
     margin: 0 auto;
+    align-items: center;
 }
 
 .about__photo {
@@ -13,12 +14,14 @@
     margin: 0 64px 0 0;
     object-fit: cover;
     object-position: center;
+    overflow: hidden;
+    min-width: 232px;
 }
 
 .about__info-block {
     max-width: 600px;
     min-width: 424px;
-    height: 464px;
+    max-height: 464px;
     overflow: hidden;
     padding-top: 51px;
     box-sizing: border-box;
@@ -49,3 +52,26 @@
 .about__description:last-of-type {
     margin-bottom: 0;
 }
+
+@media screen and (max-width: 1325px) {
+    .about {
+        padding: 40px;
+    }
+
+    .about__info-block {
+        padding-top: 0;
+        max-width: 717px;
+    }
+
+    .about__title {
+        font-size: 30px;
+        line-height: 1.33;
+        margin-bottom: 16px;
+    }
+
+    .about__photo {
+        margin-right: 32px;
+    }
+}
+
+@media screen and (max-width: )
