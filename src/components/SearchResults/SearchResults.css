@@ -8,7 +8,7 @@
 
 .search-results {
     background: #F5F6F7;
-    height: 974px;
+    min-height: 974px;
     box-sizing: border-box;
     padding: 80px 0;
 }
@@ -48,4 +48,22 @@
 
 .search-results__more-button:hover {
     opacity: .8;
+}
+
+@media screen and (max-width: 1024px) {
+    .search-results {
+        min-height: 654px;
+        padding: 40px 0;
+    }
+    
+    .search-results__title {
+        font-size: 30px;
+        line-height: 1.13;
+        padding-left: 40px;
+    }
+
+    .search-results__more-button {
+        width: 240px;
+        height: 56px;
+    }
 }

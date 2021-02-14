@@ -8,7 +8,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.33;
     text-decoration: none;
     transition: opacity .2s linear;
     cursor: pointer;
@@ -50,7 +50,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.33;
     text-align: center;
     box-sizing: border-box;
     height: 48px;
@@ -92,6 +92,10 @@
         line-height: 1.5;
     }
     
+    .navigation__link_disabled {
+        padding-bottom: 20px;
+    }
+
     .navigation__button {
         margin-left: 16px;
         font-size: 16px;
@@ -107,4 +111,27 @@
         padding: 0 16px 0 15px;
         width: 100px;
     }
+    
+}
+
+@media screen and (max-width: 750px) {
+    .navigation__link {
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .navigation__button {
+        font-size: 14px;
+        margin-left: 10px;
+    }
+
+    .navigation__button_type_auth {
+        width: 130px;
+    }
+
+    .navigation__button_type_logout {
+        padding: 0 16px 0 15px;
+        width: 100px;
+    }
+    
 }

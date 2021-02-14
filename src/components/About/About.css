@@ -72,6 +72,34 @@
     .about__photo {
         margin-right: 32px;
     }
+
+    .about__description {
+        margin-bottom: 16px;
+    }
 }
 
-@media screen and (max-width: )
+@media screen and (max-width: 750px) {
+    .about {
+        padding: 20px;
+    }
+
+    .about__info-block {
+        min-width: 300px;
+    }
+
+    .about__title {
+        font-size: 30px;    
+        line-height: 1.33;
+        margin-bottom: 16px;
+    }
+
+    .about__photo {
+        margin-right: 32px;
+        max-width: 232px;
+    }
+
+    .about__description {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+}
