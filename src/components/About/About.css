@@ -1,0 +1,133 @@
+.about {
+    max-width: 1440px;
+    max-height: 624px;
+    box-sizing: border-box;
+    padding: 80px 216px 80px 104px;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.about__photo {
+    border-radius: 1000px;
+    max-width: 464px;
+    margin: 0 64px 0 0;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    min-width: 232px;
+}
+
+.about__info-block {
+    max-width: 600px;
+    min-width: 424px;
+    max-height: 464px;
+    overflow: hidden;
+    padding-top: 51px;
+    box-sizing: border-box;
+}
+
+.about__title {
+    font-family: 'Roboto Slab', ‘Arial’, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 1.15;
+    color: #1A1B22;
+    text-align: left;
+    margin: 0 0 24px;
+}
+
+.about__description {
+    font-family: 'Roboto', ‘Arial’, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.33;
+    color: #1A1B22;
+    text-align: left;
+    margin: 0 0 34px;
+}
+
+.about__description:last-of-type {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 1325px) {
+    .about {
+        padding: 40px;
+    }
+
+    .about__info-block {
+        padding-top: 0;
+        max-width: 717px;
+    }
+
+    .about__title {
+        font-size: 30px;
+        line-height: 1.33;
+        margin-bottom: 16px;
+    }
+
+    .about__photo {
+        margin-right: 32px;
+    }
+
+    .about__description {
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .about {
+        padding: 20px;
+    }
+
+    .about__info-block {
+        min-width: 300px;
+    }
+
+    .about__title {
+        font-size: 30px;    
+        line-height: 1.33;
+        margin-bottom: 16px;
+    }
+
+    .about__photo {
+        margin-right: 32px;
+        max-width: 232px;
+    }
+
+    .about__description {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about {
+        flex-direction: column;
+        padding: 32px 24px;
+        width: 100%;
+        max-width: 100%;
+        max-height: 1000px;
+    }
+
+    .about__photo {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 24px;
+    }
+
+    .about__info-block {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0px;
+        max-height: 100%;
+    }
+
+    .about__description {
+        margin-bottom: 16px;
+        font-size: 18px;
+    }
+}

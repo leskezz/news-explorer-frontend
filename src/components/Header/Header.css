@@ -1,0 +1,119 @@
+.header {
+    width: 100%;
+}
+
+.header_black {
+    background-image: url('../../images/header_background.jpg');
+    height: 576px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.header_white {
+    height: 80px;
+    background: #fff;
+}
+
+.header__top {
+    max-width: 1440px;
+    display: flex;
+    height: 80px;
+    padding: 0 104px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px rgba(196, 196, 196, 0.01);
+    margin: 0 auto;
+}
+
+.header__top_black {
+    box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+}
+
+.header__top_white {
+    box-shadow: inset 0px -1px 0px #D1D2D6;
+}
+
+.header__logo {
+    font-family: 'Roboto Slab', ‘Arial’, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: opacity .2s linear;
+}
+
+.header__logo:hover {
+    opacity: .9;
+}
+
+.header__logo_black {
+    color: #FFF;
+}
+
+.header__logo_white {
+    color: #1A1B22;
+}
+
+.header__menu-button {
+    display: none;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+    .header_white {
+        height: 66px;
+    }
+
+    .header_black {
+        height: 400px;
+    }
+
+    .header__top {
+        padding: 0 40px;
+        height: 66px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .header__logo  {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .header__top {
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header_white {
+        height: 56px;
+    }
+
+    .header_black {
+        height: 536px;
+    }
+
+    .header__top {
+        padding: 0 16px;
+        height: 56px;
+    }
+    
+    .header__menu-button {
+        display: block;
+        z-index: 3;
+    }
+
+    .header__top_hide {
+        opacity: 0;
+    }
+}
