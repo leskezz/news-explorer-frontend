@@ -10,7 +10,7 @@ function NewsCard({ card, showTag, children }) {
                 showTag &&
                     <div className="new-card__tag">
                         <p className="new-card__tag-text">
-                            {card.tag}
+                            {card.keyword}
                         </p>
                     </div>
             }

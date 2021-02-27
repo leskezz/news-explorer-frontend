@@ -30,7 +30,7 @@ class MainApi {
 
     _postRequest ({url, headers, body}) {
         return fetch(`${this._baseUrl}/${url}`, {
-            headers: headers || this._getHeaders,
+            headers: headers || this._getHeaders(),
             method: 'POST',
             body: body
         })
@@ -44,7 +44,7 @@ class MainApi {
 
     _deleteRequest ({ url, id}) {
         return fetch(`${this._baseUrl}/${url}/${id}`, {
-            headers: this._getHeaders,
+            headers: this._getHeaders(),
             method: 'DELETE',
         })
                     .then((res) => {

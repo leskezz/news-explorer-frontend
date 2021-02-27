@@ -1,7 +1,7 @@
 import './NewsCardList.css';
 import NewsCard from '../NewsCard/NewsCard';
 
-function NewsCardList({ cards, showTag, children }) {
+function NewsCardList({ cards, showTag, component: Component, handleArticleSave, searchKeyword, loggedIn, handleArticleDelete }) {
 
     return (
         <div className="news-card-list">
@@ -9,7 +9,7 @@ function NewsCardList({ cards, showTag, children }) {
             {
                 
                 cards.map ((card, index) => (
-                    <NewsCard key={index} card={card} children={children} showTag={showTag}></NewsCard>
+                    <Component key={index} card={card} loggedIn={loggedIn} showTag={showTag} handleArticleSave={handleArticleSave} searchKeyword={searchKeyword} handleArticleDelete={handleArticleDelete} ></Component>
                 ))
             }
         </ul>

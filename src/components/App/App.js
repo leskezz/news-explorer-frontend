@@ -25,6 +25,8 @@ function App() {
   const [registerError, setRegisterError] = React.useState('');
   const [loginError, setLoginError] = React.useState('');
   const [userName, setUserName] = React.useState('');
+  const [searchKeyword, setSearchKeyword] = React.useState('');
+  const [savedArticles, setSavedArticles] = React.useState([]);
   const history = useHistory();
 
   function openAuthPopup() {
@@ -58,6 +60,7 @@ function App() {
 
   function handleSearchSubmit(searchInputValue) {
     closeAllSearchBlocks();
+    setSearchKeyword(searchInputValue);
     return newsApi.getArticles({
       searchInputValue: searchInputValue,
       fromDate: getSevenEarlierDays(),
@@ -139,11 +142,18 @@ function handleClickSuccessPopupButton() {
 }
 
 function handleArticleSave(article) {
-  return mainApi.saveArticle({ artclesUrl: 'articles', article: article})
-    .then(res => console.log(res))
+  return mainApi.saveArticle({ articlesUrl: 'articles', article: article})
     .catch(err => console.log(err));
 }
 
+function handleArticleDelete(article) {
+  return mainApi.deleteArticle({ articlesUrl: 'articles', article: article })
+    .then(res => {
+      const newSavedArticles = savedArticles.filter(c => c._id !== article._id);
+      setSavedArticles(newSavedArticles);
+    })
+    .catch(err => console.log(err));
+}
 
   React.useEffect(() => {
     mainApi.getUserData('users/me')
@@ -153,6 +163,13 @@ function handleArticleSave(article) {
         setLoggedIn(true);
       })
       .catch(err => console.log(err));
+
+      mainApi.getInitialArticles('articles')
+        .then(articles => {
+          setSavedArticles(articles.data);
+        })
+        .catch(err => console.log(err));
+
   }, []
   );
 
@@ -169,10 +186,12 @@ function handleArticleSave(article) {
             isPopupOpen={isPopupAuthOpen || isPopupAuthRegisterOpen || isPopupSuccessAuthOpen}
             handleLogout={handleLogout}
             userName={userName}
+            savedArticles={savedArticles}
+            handleArticleDelete={handleArticleDelete}
           />
         <Route exact path="/">
           <Header clickAuthHandler={openAuthPopup} blackTheme={true} isPopupOpen={isPopupAuthOpen || isPopupAuthRegisterOpen || isPopupSuccessAuthOpen} onSubmit={handleSearchSubmit} handleLogout={handleLogout} loggedIn={loggedIn} userName={userName} />
-          <Main isPreloaderOpen={isPreloaderOpen} isNoResultsOpen={isNoResultsOpen} isSearchSuccess={isSearchSuccess} newsFound={newsFound} handleArticleSave={handleArticleSave} />
+          <Main isPreloaderOpen={isPreloaderOpen} isNoResultsOpen={isNoResultsOpen} isSearchSuccess={isSearchSuccess} newsFound={newsFound} handleArticleSave={handleArticleSave} searchKeyword={searchKeyword} loggedIn={loggedIn} />
         </Route>
         <Route path="*">
           <Redirect to="/" />

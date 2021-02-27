@@ -1,7 +1,7 @@
 import Header from '../Header/Header';
 import SavedNews from '../SavedNews/SavedNews';
 
-function MyProtectedComponent({ clickAuthHandler, isPopupOpen, blackTheme, loggedIn, handleLogout, userName }) {
+function MyProtectedComponent({ clickAuthHandler, isPopupOpen, blackTheme, loggedIn, handleLogout, userName, savedArticles, handleArticleDelete }) {
     return (
         <> 
             <Header
@@ -12,7 +12,7 @@ function MyProtectedComponent({ clickAuthHandler, isPopupOpen, blackTheme, logge
                 handleLogout={handleLogout}
                 userName={userName}
             />
-            <SavedNews />
+            <SavedNews savedArticles={savedArticles} handleArticleDelete={handleArticleDelete} />
         </>
     )
 }
