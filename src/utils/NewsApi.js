@@ -3,7 +3,7 @@ class NewsApi {
         this._baseUrl = baseUrl;
         this._apiKey = apiKey;
         this._headers = {
-            'Content-Type': 'application/json; charset=utf-8'
+            'Content-Type': 'application/json;'
         };
     }
 
@@ -13,15 +13,13 @@ class NewsApi {
             `from=${fromDate}&` +
             `to=${toDate}&`+
             'sortBy=popularity&' +
-            'pageSize=1000&' +
+            'pageSize=100&' +
             `apiKey=${this._apiKey}`;
 
-        fetch(url, {
+        return fetch(url, {
             Headers: this._headers
         })
-            .then((response) => {
-                console.log(response.json());
-            })
+            .then((response) => response.json())
     }
 }
 

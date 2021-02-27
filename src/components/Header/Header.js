@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
@@ -5,7 +6,7 @@ import Navigation from '../Navigation/Navigation';
 import SearchForm from '../SearchForm/SearchForm';
 import { Menu, Close } from '../../images/svg/index';
 
-function Header({ blackTheme, clickAuthHandler, isPopupOpen }) {
+function Header({ blackTheme, clickAuthHandler, isPopupOpen, onSubmit }) {
     const [isMenuOpened, setIsMenuOpened] = useState(false);
 
     function handleMenuClick() {
@@ -25,7 +26,7 @@ function Header({ blackTheme, clickAuthHandler, isPopupOpen }) {
                 </button>
             </div>
             {
-                blackTheme && <SearchForm />
+                blackTheme && <SearchForm onSubmit={onSubmit} />
             }
         </header>
     )
