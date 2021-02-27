@@ -2,7 +2,7 @@ import React from 'react';
 import './PopupAuth.css';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
-function PopupAuth({ isOpen, onClose, changePopup }) {
+function PopupAuth({ isOpen, onClose, changePopup, loginError, onSubmit }) {
 
 return (
     <PopupWithForm
@@ -13,6 +13,7 @@ return (
         isOpen={isOpen}
         onClose={onClose}
         changePopup={changePopup}
+        serverError={loginError}
     >
         <fieldset className="popup-auth">
             <div className="popup-auth__item">

@@ -1,10 +1,16 @@
 import React from 'react';
 import './PopupRegister.css';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
+import { useFormWithValidation } from '../../utils/FormController';
 
-function PopupRegister({ isOpen, onClose, changePopup }) {
+function PopupRegister({ isOpen, onClose, changePopup, registerError, onSubmit }) {
     
+    const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
+    function handleSubmitRegister(e) {
+        e.preventDefault();
+        onSubmit({ user: values, resetForm: resetForm });
+    }
 
     return (
         <PopupWithForm
@@ -15,6 +21,9 @@ function PopupRegister({ isOpen, onClose, changePopup }) {
             isOpen={isOpen}
             onClose={onClose}
             changePopup={changePopup}
+            serverError={registerError}
+            isValid={isValid}
+            onSubmit={handleSubmitRegister}
         >
             <fieldset className="popup-auth">
                 <div className="popup-auth__item">
@@ -26,8 +35,10 @@ function PopupRegister({ isOpen, onClose, changePopup }) {
                         name="email"
                         required
                         placeholder="Введите почту"
+                        value={values.email || ''}
+                        onChange={handleChange}
                     />
-                    <span className="popup-auth__error">Неправильный формат email</span>
+                    <span className="popup-auth__error">{errors.email}</span>
                 </div>
                 <div className="popup-auth__item">
                     <label htmlFor="password-reg" className="popup-auth__item-name">Пароль</label>
@@ -36,11 +47,13 @@ function PopupRegister({ isOpen, onClose, changePopup }) {
                         className="popup-auth__input"
                         type="password"
                         name="password"
-                        minLength="2"
+                        minLength="8"
                         required
                         placeholder="Введите пароль"
+                        value={values.password || ''}
+                        onChange={handleChange}
                     />
-                    <span className="popup-auth__error">Пароль должен содержать минимум 2 символа</span>
+                    <span className="popup-auth__error">{errors.password}</span>
                 </div>
                 
                 <div className="popup-auth__item">
@@ -51,10 +64,13 @@ function PopupRegister({ isOpen, onClose, changePopup }) {
                         type="text"
                         name="name"
                         minLength="2"
+                        maxLength="30"
                         required
                         placeholder="Введите своё имя"
+                        value={values.name || ''}
+                        onChange={handleChange}
                     />
-                    <span className="popup-auth__error">Имя должно содержать минимум 2 буквы</span>
+                    <span className="popup-auth__error">{errors.name}</span>
                 </div>
 
             </fieldset>
