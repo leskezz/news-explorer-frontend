@@ -2,7 +2,7 @@ import './Navigation.css';
 import { NavLink } from 'react-router-dom';
 import { Logout } from "../../images/svg/index";
 
-function Navigation({ blackTheme, clickAuthHandler, isMenuOpened, loggedIn, handleLogout }) {
+function Navigation({ blackTheme, clickAuthHandler, isMenuOpened, loggedIn, handleLogout, userName }) {
     return (
         <div className={`navigation ${isMenuOpened && 'navigation_opened'}`}>
             <div className="navigation__block">
@@ -17,7 +17,7 @@ function Navigation({ blackTheme, clickAuthHandler, isMenuOpened, loggedIn, hand
                     <button onClick={clickAuthHandler} type="button" className={`navigation__button navigation__button_type_auth ${blackTheme ? 'navigation__button_black' : 'navigation__button_white'}`}>Авторизоваться</button>
                     :
                     <button onClick={handleLogout} type="button" className={`navigation__button navigation__button_type_logout ${blackTheme ? 'navigation__button_black' : 'navigation__button_white'}`}>
-                        Грета
+                        <p className="navigation__button-description">{userName}</p>
                         <Logout color={`${blackTheme ? '#fff' : '#1A1B22'}`} width="18" height="16" />
                     </button>
                 }

@@ -11,7 +11,7 @@ function PopupWithForm ({ isOpen, name, onSubmit, title, buttonName, onClose, au
                     
                 {children}
 
-                <span className="popup__server-error">{serverError}</span>
+                <span className="popup__server-error">{serverError || ''}</span>
                 <button type="submit" className="popup__save-button" disabled={!isValid} >{buttonName} </button>
                     
                 <button type="button" className="popup__close-button" onClick={onClose}>

@@ -1,8 +1,16 @@
 import React from 'react';
 import './PopupAuth.css';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
+import { useFormWithValidation } from '../../utils/FormController';
 
 function PopupAuth({ isOpen, onClose, changePopup, loginError, onSubmit }) {
+
+    const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+
+    function handleSubmitLogin(e) {
+        e.preventDefault();
+        onSubmit({ user: values, resetForm: resetForm });
+    }
 
 return (
     <PopupWithForm
@@ -14,6 +22,8 @@ return (
         onClose={onClose}
         changePopup={changePopup}
         serverError={loginError}
+        onSubmit={handleSubmitLogin}
+        isValid={isValid}
     >
         <fieldset className="popup-auth">
             <div className="popup-auth__item">
@@ -25,8 +35,10 @@ return (
                     name="email"
                     required
                     placeholder="Введите почту"
+                    value={values.email || ''}
+                    onChange={handleChange}
                 />
-                <span className="popup-auth__error">Неправильный формат email</span>
+                <span className="popup-auth__error">{errors.email}</span>
             </div>
                 
             <div className="popup-auth__item">
@@ -39,8 +51,10 @@ return (
                     minLength="2"
                     required
                     placeholder="Введите пароль"
+                    value={values.password || ''}
+                    onChange={handleChange}
                 />
-                <span className="popup-auth__error">Пароль должен содержать минимум 2 символа</span>
+                <span className="popup-auth__error">{errors.password}</span>
             </div>
             
         </fieldset>

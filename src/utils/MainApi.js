@@ -17,7 +17,7 @@ class MainApi {
 
     _getRequest (url) {
         return fetch(`${this._baseUrl}/${url}`, {
-            headers: this._getHeaders,
+            headers: this._getHeaders(),
             method: 'GET'
         })
                     .then((res) => {
@@ -38,7 +38,7 @@ class MainApi {
                         if (res.ok) {
                             return res.json();
                         }
-                        return Promise.reject(new Error(`Ошибка: ${res.status}`));
+                        return Promise.reject(`Ошибка: ${res.status}`);
                     })
     }
 

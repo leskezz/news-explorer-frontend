@@ -24,6 +24,7 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [registerError, setRegisterError] = React.useState('');
   const [loginError, setLoginError] = React.useState('');
+  const [userName, setUserName] = React.useState('');
   const history = useHistory();
 
   function openAuthPopup() {
@@ -87,13 +88,14 @@ function App() {
                 history.push('/');
                 closeAllPopups();
                 resetForm();
+                mainApi.getUserData('users/me').then(user => setUserName(user.data.name))
                 return;
             } else {
                 return Promise.reject();
             }
         })
         .catch(err => {
-          setLoginError(err.error);
+          setLoginError(err);
           console.log(err);
           return;
         })
@@ -119,7 +121,7 @@ function handleRegisterSubmit ({ user, resetForm }) {
         })
         .catch(err => {
             console.log(err);
-            setRegisterError(err.error);
+            setRegisterError(err);
             return;
         })
 
@@ -136,9 +138,21 @@ function handleClickSuccessPopupButton() {
   openAuthPopup();
 }
 
+function handleArticleSave(article) {
+  return mainApi.saveArticle({ artclesUrl: 'articles', article: article})
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+}
+
 
   React.useEffect(() => {
-    console.log('initialization')
+    mainApi.getUserData('users/me')
+      .then(user => {
+        setUserName(user.data.name);
+        history.push('/');
+        setLoggedIn(true);
+      })
+      .catch(err => console.log(err));
   }, []
   );
 
@@ -154,10 +168,11 @@ function handleClickSuccessPopupButton() {
             blackTheme={false}
             isPopupOpen={isPopupAuthOpen || isPopupAuthRegisterOpen || isPopupSuccessAuthOpen}
             handleLogout={handleLogout}
+            userName={userName}
           />
         <Route exact path="/">
-          <Header clickAuthHandler={openAuthPopup} blackTheme={true} isPopupOpen={isPopupAuthOpen || isPopupAuthRegisterOpen || isPopupSuccessAuthOpen} onSubmit={handleSearchSubmit} handleLogout={handleLogout} loggedIn={loggedIn} />
-          <Main isPreloaderOpen={isPreloaderOpen} isNoResultsOpen={isNoResultsOpen} isSearchSuccess={isSearchSuccess} newsFound={newsFound}/>
+          <Header clickAuthHandler={openAuthPopup} blackTheme={true} isPopupOpen={isPopupAuthOpen || isPopupAuthRegisterOpen || isPopupSuccessAuthOpen} onSubmit={handleSearchSubmit} handleLogout={handleLogout} loggedIn={loggedIn} userName={userName} />
+          <Main isPreloaderOpen={isPreloaderOpen} isNoResultsOpen={isNoResultsOpen} isSearchSuccess={isSearchSuccess} newsFound={newsFound} handleArticleSave={handleArticleSave} />
         </Route>
         <Route path="*">
           <Redirect to="/" />
