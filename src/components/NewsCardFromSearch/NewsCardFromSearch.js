@@ -2,23 +2,28 @@ import { useState } from 'react';
 import NewsCard from '../NewsCard/NewsCard';
 import { Bookmark } from '../../images/svg/index';
 
-function NewsCardFromSearch({ card, showTag, handleArticleSave, searchKeyword, loggedIn }) {
+function NewsCardFromSearch({ card, showTag, handleArticleSave, searchKeyword, loggedIn, openAuthPopup }) {
 
     const [isClickedSaveButton, setIsClickedSaveButton] = useState(false);
 
     function handleSaveCard() {
-        const article ={
-            keyword: searchKeyword,
-            title: card.title,
-            text: card.content,
-            date: card.publishedAt,
-            source: card.source.name,
-            link: card.url,
-            image: card.urlToImage,
+        if(loggedIn) {
+            const article ={
+                keyword: searchKeyword,
+                title: card.title,
+                text: card.content,
+                date: card.publishedAt,
+                source: card.source.name,
+                link: card.url,
+                image: card.urlToImage,
+            }
+            handleArticleSave(article)
+            .then(() => setIsClickedSaveButton(!isClickedSaveButton))
+            .catch(err => console.error(err))
+            return
+        } else {
+            openAuthPopup();
         }
-        handleArticleSave(article)
-        setIsClickedSaveButton(!isClickedSaveButton);
-        
     }
 
     return (

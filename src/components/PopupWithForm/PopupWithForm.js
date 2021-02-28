@@ -1,7 +1,7 @@
 import './PopupWithForm.css';
 import { Close } from '../../images/svg/index';
 
-function PopupWithForm ({ isOpen, name, onSubmit, title, buttonName, onClose, authOrRegister, changePopup, serverError, isValid, children }) {
+function PopupWithForm ({ isOpen, name, onSubmit, title, buttonName, onClose, authOrRegister, changePopup, serverError, isValid, responseLoading, children }) {
     return (
         <section className={`popup ${isOpen ? 'popup_opened' : ''}`}>
 
@@ -12,7 +12,7 @@ function PopupWithForm ({ isOpen, name, onSubmit, title, buttonName, onClose, au
                 {children}
 
                 <span className="popup__server-error">{serverError || ''}</span>
-                <button type="submit" className="popup__save-button" disabled={!isValid} >{buttonName} </button>
+                <button type="submit" className="popup__save-button" disabled={!isValid || responseLoading} >{buttonName} </button>
                     
                 <button type="button" className="popup__close-button" onClick={onClose}>
                     <Close width="40px" height="40px" />

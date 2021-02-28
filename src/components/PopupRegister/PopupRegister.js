@@ -3,7 +3,7 @@ import './PopupRegister.css';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import { useFormWithValidation } from '../../utils/FormController';
 
-function PopupRegister({ isOpen, onClose, changePopup, registerError, onSubmit }) {
+function PopupRegister({ isOpen, onClose, changePopup, registerError, onSubmit, responseLoading }) {
     
     const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
@@ -24,6 +24,7 @@ function PopupRegister({ isOpen, onClose, changePopup, registerError, onSubmit }
             serverError={registerError}
             isValid={isValid}
             onSubmit={handleSubmitRegister}
+            responseLoading={responseLoading}
         >
             <fieldset className="popup-auth">
                 <div className="popup-auth__item">
@@ -37,6 +38,7 @@ function PopupRegister({ isOpen, onClose, changePopup, registerError, onSubmit }
                         placeholder="Введите почту"
                         value={values.email || ''}
                         onChange={handleChange}
+                        disabled={responseLoading}
                     />
                     <span className="popup-auth__error">{errors.email}</span>
                 </div>
@@ -52,6 +54,7 @@ function PopupRegister({ isOpen, onClose, changePopup, registerError, onSubmit }
                         placeholder="Введите пароль"
                         value={values.password || ''}
                         onChange={handleChange}
+                        disabled={responseLoading}
                     />
                     <span className="popup-auth__error">{errors.password}</span>
                 </div>
@@ -69,6 +72,7 @@ function PopupRegister({ isOpen, onClose, changePopup, registerError, onSubmit }
                         placeholder="Введите своё имя"
                         value={values.name || ''}
                         onChange={handleChange}
+                        disabled={responseLoading}
                     />
                     <span className="popup-auth__error">{errors.name}</span>
                 </div>

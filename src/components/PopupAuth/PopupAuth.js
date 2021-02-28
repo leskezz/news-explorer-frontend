@@ -3,7 +3,7 @@ import './PopupAuth.css';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import { useFormWithValidation } from '../../utils/FormController';
 
-function PopupAuth({ isOpen, onClose, changePopup, loginError, onSubmit }) {
+function PopupAuth({ isOpen, onClose, changePopup, loginError, onSubmit, responseLoading }) {
 
     const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
@@ -24,6 +24,7 @@ return (
         serverError={loginError}
         onSubmit={handleSubmitLogin}
         isValid={isValid}
+        responseLoading={responseLoading}
     >
         <fieldset className="popup-auth">
             <div className="popup-auth__item">
@@ -37,6 +38,7 @@ return (
                     placeholder="Введите почту"
                     value={values.email || ''}
                     onChange={handleChange}
+                    disabled={responseLoading}
                 />
                 <span className="popup-auth__error">{errors.email}</span>
             </div>
@@ -53,6 +55,7 @@ return (
                     placeholder="Введите пароль"
                     value={values.password || ''}
                     onChange={handleChange}
+                    disabled={responseLoading}
                 />
                 <span className="popup-auth__error">{errors.password}</span>
             </div>

@@ -84,10 +84,10 @@
 }
 
 .navigation__button_type_logout {
-    padding: 0 15px 0 19px;
-    width: 112px;
+    padding: 0 10px;
+    min-width: 112px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -102,7 +102,7 @@
 }
 
 .navigation__button-description {
-    margin: 0;
+    margin: 0 12px 0 0;
 }
 
 @media screen and (max-width: 1024px) {

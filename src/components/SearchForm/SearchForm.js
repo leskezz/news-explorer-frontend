@@ -2,7 +2,7 @@ import {useState} from 'react';
 import './SearchForm.css';
 import { useForm } from '../../utils/FormController';
 
-function SearchForm({ onSubmit }) {
+function SearchForm({ onSubmit, responseLoading }) {
     const [isSearchClicked, setIsSearchClicked] = useState(false);
     const {values, handleChange, isValid} = useForm();
 
@@ -36,8 +36,9 @@ function SearchForm({ onSubmit }) {
                 value={values.searchInput || ''}
                 onChange={handleChange}
                 required
+                disabled={responseLoading}
                 ></input>
-                <button disabled={!isValid} onMouseUp={handleClickSearch} onMouseDown={handleClickSearch} type="submit" className={`search-form__submit ${isSearchClicked && 'search-form__submit_clicked'}`}>Искать</button>
+                <button disabled={!isValid || responseLoading} onMouseUp={handleClickSearch} onMouseDown={handleClickSearch} type="submit" className={`search-form__submit ${isSearchClicked && 'search-form__submit_clicked'}`}>Искать</button>
             </fieldset>
         </form>
     )
