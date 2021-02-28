@@ -197,6 +197,7 @@ function handleArticleDelete(article) {
       .then(user => {
         setCurrentUser(user.data);
         setLoggedIn(true);
+        closeAllPopups();
         mainApi.getInitialArticles('articles')
         .then(articles => {
           setSavedArticles(articles.data);
