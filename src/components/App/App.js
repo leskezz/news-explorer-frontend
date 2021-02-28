@@ -76,6 +76,8 @@ function App() {
       })
       .then ((news) => {
         setNewsFound(news);
+        localStorage.setItem('lastNews', JSON.stringify(news));
+        localStorage.setItem('lastKeyword', searchInputValue);
       })
   }
 
@@ -133,6 +135,8 @@ function handleRegisterSubmit ({ user, resetForm }) {
 function handleLogout () {
     setLoggedIn(false);
     localStorage.removeItem('token');
+    localStorage.removeItem('lastNews');
+    localStorage.removeItem('lastKeyword');
     history.push('/');
 }
 
@@ -159,8 +163,14 @@ function handleArticleDelete(article) {
     mainApi.getUserData('users/me')
       .then(user => {
         setUserName(user.data.name);
-        history.push('/');
         setLoggedIn(true);
+        const lastArticles = JSON.parse(localStorage.getItem('lastNews'))
+        if(lastArticles) {
+          setIsSearchSuccess(true);
+          setNewsFound(lastArticles);
+          setSearchKeyword(localStorage.getItem('lastKeyword'));
+        }
+        
       })
       .catch(err => console.log(err));
 
