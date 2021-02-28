@@ -22,7 +22,7 @@ function SavedNews({ savedArticles, handleArticleDelete }) {
                 </h2>
                 <p className="saved-news__tags">
                     По ключевым словам:
-                        <span className="saved-news__tags-span">{sortedArticles && ` ${sortedArticles[0][0]}${sortedArticles.length > 1 && `, ${sortedArticles[1][0]}`} `}</span>
+                        <span className="saved-news__tags-span">{sortedArticles.length > 0 && ` ${sortedArticles[0][0]}${sortedArticles.length > 1 && `, ${sortedArticles[1][0]}`} `}</span>
                     {sortedArticles.length > 2 && 'и'}
                         {sortedArticles.length > 2 &&
                             <span className="saved-news__tags-span">{ (sortedArticles.length === 3) ? sortedArticles[2][0] : ` ${sortedArticles.length - 2}-м другим` }</span>
