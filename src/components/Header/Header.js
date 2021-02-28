@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
@@ -5,7 +6,7 @@ import Navigation from '../Navigation/Navigation';
 import SearchForm from '../SearchForm/SearchForm';
 import { Menu, Close } from '../../images/svg/index';
 
-function Header({ blackTheme, clickAuthHandler, isPopupOpen }) {
+function Header({ blackTheme, clickAuthHandler, isPopupOpen, onSubmit, handleLogout, loggedIn, responseLoading }) {
     const [isMenuOpened, setIsMenuOpened] = useState(false);
 
     function handleMenuClick() {
@@ -16,7 +17,7 @@ function Header({ blackTheme, clickAuthHandler, isPopupOpen }) {
         <header className={`header ${blackTheme ? 'header_black' : 'header_white'}`}>
             <div className={`header__top ${blackTheme ? 'header__top_black' : 'header__top_white'} ${isPopupOpen && 'header__top_hide'}`}>
                 <Link exact to="/" className={`header__logo ${blackTheme ? 'header__logo_black' : 'header__logo_white'}`}>NewsExplorer</Link>
-                <Navigation clickAuthHandler={clickAuthHandler} blackTheme={blackTheme} isMenuOpened={isMenuOpened} />
+                <Navigation clickAuthHandler={clickAuthHandler} blackTheme={blackTheme} isMenuOpened={isMenuOpened} handleLogout={handleLogout} loggedIn={loggedIn} />
                 <button type="button" onClick={handleMenuClick} className="header__menu-button">
                     {
                         !isMenuOpened ? <Menu width="24px" height="24px" color={blackTheme ? '#fff' : '#1A1B22'} />
@@ -25,7 +26,7 @@ function Header({ blackTheme, clickAuthHandler, isPopupOpen }) {
                 </button>
             </div>
             {
-                blackTheme && <SearchForm />
+                blackTheme && <SearchForm onSubmit={onSubmit} responseLoading={responseLoading} />
             }
         </header>
     )

@@ -1,15 +1,24 @@
 import {useState} from 'react';
 import './SearchForm.css';
+import { useForm } from '../../utils/FormController';
 
-function SearchForm() {
+function SearchForm({ onSubmit, responseLoading }) {
     const [isSearchClicked, setIsSearchClicked] = useState(false);
+    const {values, handleChange, isValid} = useForm();
 
     function handleClickSearch() {
         setIsSearchClicked(!isSearchClicked);
     }
 
+    function handleSubmitSearch(e) {
+        e.preventDefault();
+        onSubmit(values.searchInput);
+    }
+
+    
+
     return(
-        <form className="search-form" name="search">
+        <form className="search-form" name="search" onSubmit={handleSubmitSearch}>
             <h1 className="search-form__title">
                 Что творится в мире?
             </h1>
@@ -21,12 +30,15 @@ function SearchForm() {
                 className="search-form__input"
                 type="text"
                 placeholder="Введите тему новости"
-                name="search-input"
+                name="searchInput"
                 minLength="2"
                 maxLength="40"
+                value={values.searchInput || ''}
+                onChange={handleChange}
                 required
+                disabled={responseLoading}
                 ></input>
-                <button onMouseUp={handleClickSearch} onMouseDown={handleClickSearch} type="submit" className={`search-form__submit ${isSearchClicked && 'search-form__submit_clicked'}`}>Искать</button>
+                <button disabled={!isValid || responseLoading} onMouseUp={handleClickSearch} onMouseDown={handleClickSearch} type="submit" className={`search-form__submit ${isSearchClicked && 'search-form__submit_clicked'}`}>Искать</button>
             </fieldset>
         </form>
     )
